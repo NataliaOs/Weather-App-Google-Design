@@ -11,9 +11,9 @@ h1 {
     color: rgb(32 , 33, 36);
     font-family: sans-serif, arial;
     font-size: 24px;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 28px;
-    margin: 0;
+    padding-top: 20px;
 
 }
 ul{
@@ -48,6 +48,10 @@ li {
     font-weight: 400;
     line-height: 1;
 
+}
+.description {
+    font-size: 15px;
+    text-transform: capitalize;
 }
 
 

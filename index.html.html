@@ -14,7 +14,7 @@
 
     <div class="container">
         <div class="weather-app">
-            <form class="search-form">
+            <form id="search-form" class="mb-3">
                 <div class="row">
                     <div class="col-9">
                         <input type="search"
@@ -22,6 +22,8 @@
                         autofocus="on"
                         autocomplete="off"
                         class="form-control shadow-sm"
+                        id="city-input"
+                        autocomplete="off"
                         />
                     </div>
                     <div class="col-3">
@@ -31,21 +33,21 @@
                     </div>
                 </div>
             </form>
-            <h1 id="city"></h1>
+            <h1 id="city"> </h1>
             <ul>
                 <h6 id="actualDate">
-                    Wednesday, 22:00
+                   
                 </h6>
-                <li id="description">
-                    Party Cloudy
+                <li class = "description" id="description">
+                   
                 </li>
             </ul>
             <div class="row">
                 <div class="col-6">
                     
-                    <img  src="src(teacher's proj)/img/partly_cloudy.png" id="icon" alt="party_cloudy_icon" class="weather-icon"/>
+                    <img  src="src/img/partly_cloudy.png" id="icon" alt="party_cloudy_icon" class="weather-icon"/>
                                        
-                    <span class="temperature" id="temperature">19</span> 
+                    <span class="temperature" id="temperature"></span> 
                     <span class="units"  id="units"> °C | <a href="#">°F</a> </span>
                      
                        
@@ -53,10 +55,10 @@
                 <div class="col-6">
                    
                     <li>
-                        Humidity: <span id="humidity">77</span>%
+                        Humidity: <span id="humidity"></span>%
                     </li>
                     <li>
-                        Wind: <span id="wind">8</span>km/h
+                        Wind: <span id="wind"></span>km/h
                     </li>
                     
                 </div>
@@ -64,5 +66,6 @@
         </div>
     </div>
    <script src="src/index.js.js"></script>
+   
 </body>
 </html>
