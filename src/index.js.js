@@ -7,7 +7,9 @@ function displayTemperature (response){
  let windElement = document.querySelector("#wind");
  let iconElement = document.querySelector("#icon");
 
- temperatureElement.innerHTML = Math.round(response.data.main.temp);
+ celsiusTemperature = response.data.main.temp;  
+
+ temperatureElement.innerHTML = Math.round(celsiusTemperature);
  cityElement.innerHTML=response.data.name;
  descriptionElement.innerHTML = response.data.weather[0].description;
  humidityElement.innerHTML = response.data.main.humidity;
@@ -57,21 +59,45 @@ function handleSubmit (event) {
   search(cityInputElement.value);
 
 }
-search ("Kyiv");
+
+let celsiusTemperature = null;
+//завантажуємо celsiusTemp, що дорівнює нулю(рядок 63), потім ми викликаємо search(місто) з рядка 89, що викликає API 
+//в рамках функціі displayTemperature (рядок1), та знаходить, що celsiusTemperature = response.data.main.temp (р.10) 
+// - шлях до данних в API. Коли ми натискоємо на F, запускається функція displayFahrenheitTemperature(р.74), 
+//яка підставляє у формулу нинішнє значення температури у °С(р.77)
+
+
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (14*9)/5+32;
   let temperatureElement = document.querySelector("#temperature");
+  //прибираємо клас active з °С та встановлюємо його для °F
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-
 }
 
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  //прибираємо клас active з °F та встановлюємо його для °С
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+
+search("Kyiv");
 
 
 
