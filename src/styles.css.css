@@ -2,10 +2,19 @@
     border: 1px solid #dadde1;
     border-radius: 8px;
     padding:15px;
-    margin:20px auto;
+    margin:20px auto 0;
     max-width: 600px;
 }
+p {
+    display: block;
+    margin: 0 auto;
+    height: 1;
+    max-width: 600px;
+    font-family: sans-serif, arial;
+    font-size: 10px;
 
+
+}
 
 h1 {
     color: rgb(32 , 33, 36);
