@@ -46,6 +46,34 @@ function displayTemperature (response){
 
        h6.innerHTML = `${day} ${month} ${date}, ${year} ${hours}:${minutes}`; 
        
+function displayForecast() {
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + ` 
+    <div class="col-2">
+          <div class="day-1">
+            ${day}
+          </div>
+          <img 
+          src="src/img/rain.png" alt="" width="30"
+          />
+          <div class="weather-forecast-temperatures">
+            <span class="temp-max"> 12° </span>
+            <span class="temp-min"> 8° </span> 
+          </div>
+    </div>
+      `;
+  });
+  forecastHTML = forecastHTML + `</div>`; 
+  forecastElement.innerHTML = forecastHTML;
+
+
+}       
        
 function search(city) {
 
@@ -99,6 +127,8 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 
 search("Kyiv");
+displayForecast();
+
 
 
 
