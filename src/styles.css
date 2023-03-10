@@ -75,6 +75,26 @@ li {
     text-decoration: none;
 }
 
+.weather-forecast {
+    text-align: center;
+    color: black;
+
+}
+
+.numbers {
+    font-size: 16px;
+    
+
+}
+.temp-min {
+    opacity: 0.6;
+    size: 18px;
+
+}
+
+.day-1 {
+
+}
 
 
 

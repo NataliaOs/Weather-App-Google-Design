@@ -21,9 +21,10 @@ function displayTemperature (response){
        let now = new Date();
        let h6 = document.querySelector("h6");
        let date = now.getDate();
+       let year = now.getFullYear();
        let hours = now.getHours();
        let minutes = now.getMinutes();
-       let year = now.getFullYear();
+       
 
        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
        let day = days[now.getDay()];
@@ -43,7 +44,7 @@ function displayTemperature (response){
        ];
        let month = months[now.getMonth()];
 
-       h6.innerHTML = `${day} ${month} ${date}; ${hours}:${minutes}, ${year}`; 
+       h6.innerHTML = `${day} ${month} ${date}, ${year} ${hours}:${minutes}`; 
        
        
 function search(city) {
