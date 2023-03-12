@@ -1,5 +1,13 @@
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "5201594abea9f3e38b70e65b11a80c24";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+
+}
+
 function displayTemperature (response){
- console.log(response.data);
+
  let temperatureElement = document.querySelector("#temperature");
  let cityElement = document.querySelector("#city");
  let descriptionElement = document.querySelector("#description");
@@ -17,6 +25,7 @@ function displayTemperature (response){
  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  iconElement.setAttribute("alt", response.data.weather[0].description);
 
+ getForecast(response.data.coord);
 }
        let now = new Date();
        let h6 = document.querySelector("h6");
@@ -46,7 +55,8 @@ function displayTemperature (response){
 
        h6.innerHTML = `${day} ${month} ${date}, ${year} ${hours}:${minutes}`; 
        
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
 
   let forecastElement = document.querySelector("#forecast");
 
@@ -77,7 +87,7 @@ function displayForecast() {
        
 function search(city) {
 
-let apiKey = "1e79b31769bb7a7029157c18e1a2cb3a";
+let apiKey = "5201594abea9f3e38b70e65b11a80c24";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
 }       
@@ -127,7 +137,6 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 
 search("Kyiv");
-displayForecast();
 
 
 
